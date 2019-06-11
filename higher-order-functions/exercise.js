@@ -44,13 +44,34 @@ function forEach(array, callback) {
 //--------------------------------------------------
 
 //Extension 1
-function mapWith(array, callback) {}
+function multiplyByTwo(n) {
+    return n*2;
+}
+function forEach(array, callback) {
+    for (let i = 0; i < array.length; i++) {
+       callback(array[i])
+    }
+}
+function mapWith(array,callback) {
+    var newArray = [];	
+    forEach(array, (num)=> {
+        newArray.push(callback(num))
+    })
+    return newArray;
+ };
 
 //Extension 2
-function reduce(array, callback, initialValue) {}
+function reduce(array, callback, initialValue) {
+    var accumelator = initialValue;
+    for(let i = 0; i < array.length; i++) {
+      accumelator += callback(accumelator,array[i]);
+    } return accumelator
+}
 
 //Extension 3
-function intersection(arrays) {}
+function intersection(arrays) {
+    
+}
 
 // console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
 // should log: [5, 15]
